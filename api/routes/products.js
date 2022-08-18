@@ -73,20 +73,21 @@ router.patch('/:productId', (req, res , next) => {
         updateOperations[operation.propName] = operation.value;
     }
     
-    Product.updateOne({ _id: id }, { $set: updateOperations })
+
+    Product.findOneAndUpdate({ _id: id }, { $set: updateOperations })
     .exec()
     .then(result => {
         console.log(result);
+
         res.status(200).json(result);
     })
+
     .catch(err => {
         console.log(err);
         res.status(500).json({error: err});
     });
 
-    // res.status(200).json({
-    //     message: `Updated product with id ${id}`
-    // });
+
 });
 
 router.delete('/:productId', (req, res , next) => {

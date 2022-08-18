@@ -12,7 +12,8 @@ mongoose.connect('mongodb+srv://node-shop:' + 'node-shop' + '@cluster0.xk6gw.mon
     useUnifiedTopology: true 
 });
 
-app.use(morgan('dev'));
+app.use(morgan('dev')); // log HTTP requests and errors
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
