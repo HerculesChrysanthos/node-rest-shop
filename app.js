@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
 
-mongoose.connect('mongodb+srv://node-shop:' + 'node-shop' + '@cluster0.xk6gw.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGO_ATLAS_PASS + '@cluster0.xk6gw.mongodb.net/?retryWrites=true&w=majority', {
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 });
