@@ -55,7 +55,7 @@ router.post('/', (req, res, next) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(400).json({
+        res.status(500).json({
             error: err
         });
     });
@@ -85,7 +85,7 @@ router.get('/:productId', (req, res , next) => {
     })
     .catch(err => {
         console.log(err);
-        res.status(404).json({error: err});
+        res.status(500).json({error: err});
     });
 });
 
@@ -127,9 +127,9 @@ router.delete('/:productId', (req, res , next) => {
                 error: `Product with id ${id} not found.`
             });
         } else {
-            res.status(200).json(
-                `Product with id ${id} has been deleted.`
-            );
+            res.status(200).json({
+                message: `Product with id ${id} has been deleted.`
+            });
         }
     })
     .catch(err => {
